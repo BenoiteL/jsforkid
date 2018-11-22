@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Products from './Products'
-import Cart from './cart'
+import Products from './Products';
+import Cart from './cart';
 
 class App extends Component {
-
-  constructor(props)
-  {
+  constructor(props) {
     super(props);
     this.state = {
-      cart: []
-    }
+      cart: [],
+    };
   }
 
-  handleAdd = (id) => {
-    this.setState(
-      (prevState) => {
-        const cart = prevState.cart.slice();
-        cart.push(id);
-        return { cart };
-      }
-    )
+  handleAdd = id => {
+    this.setState(prevState => {
+      const cart = prevState.cart.slice();
+      cart.push(id);
+      return { cart };
+    });
   };
 
-  handleRemove = (id) => {
-    this.setState(
-      (prevState) => {
-        const cart = prevState.cart.filter(element => element !== id);
-        return { cart };
-      }
-    )
+  handleRemove = id => {
+    this.setState(prevState => {
+      const cart = prevState.cart.filter(element => element !== id);
+      return { cart };
+    });
   };
 
   render() {
