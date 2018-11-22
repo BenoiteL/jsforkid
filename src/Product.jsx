@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Product extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Product extends React.Component {
         itemType="http://schema.org/Product"
       >
         <img
-          alt="Photo of product"
+          alt={this.props.bike.name}
           itemProp="image"
           src={this.props.bike.image}
         />
@@ -70,4 +71,13 @@ class Product extends React.Component {
   }
 }
 
+Product.propTypes = {
+  bike: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number,
+    currencySymbol: PropTypes.string,
+  }),
+};
 export default Product;

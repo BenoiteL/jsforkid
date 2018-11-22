@@ -3,10 +3,6 @@ import products from './products';
 import Product from './Product.jsx';
 
 class Products extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <ul>
