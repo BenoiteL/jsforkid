@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Products from './Products'
+import Cart from './cart'
 
 class App extends Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      cart: []
+    }
+  }
+
+  handleAdd = (id) => {
+    this.setState(
+      (prevState) => {
+        const cart = prevState.cart.slice();
+        cart.push(id);
+        return { cart };
+      }
+    )
+  };
+
+  handleRemove = (id) => {
+    this.setState(
+      (prevState) => {
+        const cart = prevState.cart.filter(element => element !== id);
+        return { cart };
+      }
+    )
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Cart total={this.state.cart.length} />
+        <Products onAdd={this.handleAdd} onRemove={this.handleRemove} />
+        <Cart total={this.state.cart.length} />
       </div>
     );
   }
