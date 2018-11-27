@@ -14,19 +14,21 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
+    "connected-react-router": "^5.0.1",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
-    "eslint": "5.6.0",
+    "eslint": "^5.9.0",
     "eslint-config-react-app": "^3.0.5",
     "eslint-loader": "2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
+    "history": "^4.7.2",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "husky": "^1.2.0",
     "identity-obj-proxy": "3.0.0",
@@ -48,6 +50,12 @@
     "react-app-polyfill": "^0.1.3",
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.1",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-devtools": "^3.4.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
@@ -56,7 +64,8 @@
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.9",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3"
+    "workbox-webpack-plugin": "3.6.3",
+    "yarn-run-all": "^3.1.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -67,10 +76,13 @@
   "scripts": {
     "precommit": "lint-staged",
     "prettier-watch": "onchange src/**/*.{js,jsx,json,css} -- prettier --single-quote --trailing-comma all --write {{changed}}",
+    "api": "json-server --delay 850 --watch src/products.json --port 3001",
+    "start-dev": "npm-run-all -l -p api start",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -125,5 +137,12 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "csscomb": "^4.2.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "json-server": "^0.14.0"
   }
 }

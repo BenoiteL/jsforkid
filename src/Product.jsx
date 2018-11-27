@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Product extends React.Component {
   constructor(props) {
@@ -10,16 +11,12 @@ class Product extends React.Component {
   }
 
   handleAddClick = () => {
-    this.setState(prevState => {
-      return { isInCart: !prevState.isInCart };
-    });
+    this.setState(prevState => ({ isInCart: !prevState.isInCart }));
     this.props.onAdd(this.props.bike.id);
   };
 
   handleRemoveClick = () => {
-    this.setState(prevState => {
-      return { isInCart: !prevState.isInCart };
-    });
+    this.setState(prevState => ({ isInCart: !prevState.isInCart }));
     this.props.onRemove(this.props.bike.id);
   };
 
@@ -36,9 +33,9 @@ class Product extends React.Component {
           itemProp="image"
           src={this.props.bike.image}
         />
-        <a itemProp="url" href={`https://monsite.fr/p/${this.props.bike.id}`}>
+        <Link itemProp="url" to={`/p${this.props.bike.id}`}>
           <span itemProp="name">{this.props.bike.name}</span>
-        </a>
+        </Link>
         <div itemProp="offers" itemScope itemType="http://schema.org/Offer">
           <span itemProp="price">
             {this.props.bike.price}
@@ -76,8 +73,12 @@ Product.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string,
-    price: PropTypes.number,
+    price: PropTypes.string,
     currencySymbol: PropTypes.string,
-  }),
+    image: PropTypes.string,
+    currencyCode: PropTypes.string,
+  }).isRequired,
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
 };
 export default Product;

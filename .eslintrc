@@ -1,0 +1,82 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier",
+    "import"
+  ],
+  "rules": {
+
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    "jsx-a11y/label-has-for": [ 2, {
+      "components": [ "Label", "label" ],
+      "required": {
+        "every": [ "nesting", "id" ]
+      },
+      "allowChildren": true
+    }],
+    "no-param-reassign": 1,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/jsx-filename-extension": false,
+    "react/destructuring-assignment": ["never"],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": false
+    }]
+  },
+  "globals": {
+    "Routing": true,
+    "SyntheticEvent": true,
+    "SyntheticAnimationEvent": true,
+    "SyntheticCompositionEvent": true,
+    "SyntheticInputEvent": true,
+    "SyntheticUIEvent": true,
+    "SyntheticFocusEvent": true,
+    "SyntheticKeyboardEvent": true,
+    "SyntheticMouseEvent": true,
+    "SyntheticDragEvent": true,
+    "SyntheticWheelEvent": true,
+    "SyntheticTouchEvent": true,
+    "SyntheticTransitionEvent": true,
+    "React.Node": true,
+    "React.Element": true,
+    "React.ChildrenArray": true,
+    "React.ComponentType": true,
+    "React.StatelessFunctionalComponent": true,
+    "React.ElementType": true,
+    "React.Key": true,
+    "React.Ref": true,
+    "React.ElementProps": true,
+    "React.ElementConfig": true,
+    "React.ElementRef": true
+  }
+}

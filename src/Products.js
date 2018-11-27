@@ -1,22 +1,24 @@
 import React from 'react';
-import products from './products';
-import Product from './Product.jsx';
+import PropTypes from 'prop-types';
+import Product from './Product';
 
-class Products extends React.Component {
-  render() {
-    return (
-      <ul>
-        {products.map(product => (
-          <Product
-            key={product.id}
-            bike={product}
-            onAdd={this.props.onAdd}
-            onRemove={this.props.onRemove}
-          />
-        ))}
-      </ul>
-    );
-  }
-}
+const Products = props => (
+  <ul>
+    {props.products.map(product => (
+      <Product
+        key={product.id}
+        bike={product}
+        onAdd={props.onAdd}
+        onRemove={props.onRemove}
+      />
+    ))}
+  </ul>
+);
 
+Products.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  // eslint-disable-next-line
+  products: PropTypes.array.isRequired,
+};
 export default Products;
