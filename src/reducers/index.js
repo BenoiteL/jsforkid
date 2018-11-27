@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
+import { reducer as formReducer } from 'redux-form';
 import basket from './basket';
 import products from './products';
 import productDetail from './productDetail';
@@ -20,6 +21,7 @@ export default history =>
     basket,
     products,
     productDetail,
+    form: formReducer,
   });
 
 // export default reducers;

@@ -10,6 +10,7 @@ import reducers from './reducers';
 import './index.css';
 import App from './App';
 import ProductDetail from './ProductDetail';
+import ContactPage from './ContactPage';
 
 // Initialisation des tableaux permettant de stocker les middlewares et extensions de Redux
 const history = createBrowserHistory();
@@ -38,6 +39,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/p:id" component={ProductDetail} />
+        <Route path="/register" component={ContactPage} />
       </Switch>
     </ConnectedRouter>
   </Provider>,
